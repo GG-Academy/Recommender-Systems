@@ -6,13 +6,13 @@
 
 # Laborator 1: Colectarea Datelor Implicite în Sistemele de Recomandare
 
-În sistemele de recomandare moderne, o mare parte din date sunt colectate implicit — fără ca utilizatorul să introducă manual note sau calificative. În acest laborator, veți rula un server local în Python care extrage metadatele contextuale transmise prin protocoalele HTTP (IP, profil dispozitiv, limbi preferate) și veți efectua o cerere de test utilizând un client HTTP (Postman, Insomnia, Thunder Client sau cURL).
+În sistemele de recomandare moderne, o mare parte din date sunt colectate implicit — fără ca utilizatorul să introducă manual note sau calificative. În acest laborator, veți rula un server local în Python care extrage metadatele contextuale transmise prin protocolul HTTP (IP, profil dispozitiv, limbi preferate) și veți efectua o cerere de test utilizând browser-ul web.
 
 ## Cerințe preliminare
 
 1. Asigurați-vă că ați configurat mediul virtual Python conform [Ghidului de instalare din rădăcină](../../README.md).
 2. Asigurați-vă că aveți instalate pachetele din `requirements.txt`.
-3. Aveți pregătit un client HTTP (ex: Postman, Insomnia, Thunder Client).
+3. Aveți pregătit un browser web (ex.: Google Chrome, Mozilla Firefox, Safari).
 
 ## Instrucțiuni de rulare
 
@@ -24,40 +24,42 @@ Asigurați-vă că ați descărcat fișierul [📄 `track.py`](../track.py) în 
 python track.py
 ```
 
-### 2. Deschideți Postman (sau clientul preferat) și configurați cererea astfel:
+### 2. Accesați în browser următoarea adresă web:
 
-- Metodă HTTP: `POST`
-- URL: `http://127.0.0.1:5000/track`
-- Headers: Adăugați `Content-Type: application/json`
-- Body: Selectați opțiunea `raw` / `JSON` și trimiteți numele vostru complet:
-```
-{
-  "student_name": "Nume Prenume"
-}
-```
+- URL: `http://127.0.0.1:5000`
 
-### 3. Trimiteți cererea (Send) și copiați răspunsul JSON primit
+### 3. Completați numele complet în câmpul din formularul web care apare
+
+Datele nu pleacă de pe calculatorul vostru. Server-ul rulează doar local.
+
+### 4. Trimiteți cererea (click pe *Send*) și salvați răspunsul JSON primit
+
+Salvația răspunsul JSON într-un fișier numit `track_Nume_Prenume.json` 
 
 ## Instrucțiuni de predare
 
-Salvați răspunsul JSON generat într-un fișier numit `track_Nume_Prenume.json` și încărcați-l pe platformă.
+Încărcați fișierul creat anterior pe platforma Moodle.
+
+## Exemplu de output
+
+Mai jos aveți un exemplu de output cu caracter demonstrativ. Output-ul final va fi diferit, în funcție de dispozitivul dvs. și de datele completate în formular.
 
 ```
 {
-  "student": "Popescu Ion",
-  "run_info": {
-    "timestamp": 1772866200,
-    "verification_hash": "a4f8b2e19c30"
-  },
   "device_context": {
-    "browser": "PostmanRuntime 7.36",
+    "browser": "Chrome 154.0.0",
     "device_type": "Desktop",
-    "os": "Windows 11",
-    "raw_user_agent": "PostmanRuntime/7.36.0"
+    "os": "Mac OS X 10.15.7",
+    "raw_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36"
   },
   "network": {
     "ip_address": "127.0.0.1"
   },
+  "run_info": {
+    "timestamp": 1791359394,
+    "verification_hash": "c5d64b26b4b0"
+  },
+  "student": "Popescu Ion",
   "user_preferences_implicit": {
     "preferred_language": "en-US"
   }
