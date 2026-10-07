@@ -26,29 +26,29 @@ Deschideți terminalul în directorul proiectului și rulați:
 
 * **Windows:**
 ```cmd
-python -m venv venv
+python -m venv .venv
 ```
 
 * **macOS / Linux:**
 ```bash
-python3 -m venv venv
+python3 -m venv .venv
 ```
 
 ### 2. Activarea mediului virtual
 
 * **Windows (Command Prompt):**
 ```cmd
-venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 * **Windows (Power Shell):**
 ```powershell
-.\venv\Scripts\Activate.ps1
+.\.venv\Scripts\Activate.ps1
 ```
 
 * **macOS / Linux:**
 ```bash
-source venv/bin/activate
+source .venv/bin/activate
 ```
 
 ### 3. Instalarea dependențelor
