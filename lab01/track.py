@@ -63,5 +63,5 @@ def collect_user_data():
     return jsonify(collected_data), 200
 
 if __name__ == '__main__':
-    print("Serverul ruleaza la http://127.0.0.1:5000/track")
+    print("Serverul ruleaza la http://127.0.0.1:5000")
     app.run(debug=True, port=5000)
