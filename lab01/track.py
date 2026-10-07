@@ -18,10 +18,11 @@ def get_client_ip(req):
 
 @app.route('/track', methods=['POST', 'GET'])
 def collect_user_data():
-    # 1. Identificatori de rețea & locație
+
+    # 1. Adresa IP
     client_ip = get_client_ip(request)
     
-    # 2. Analiză User-Agent (Sistem de operare, Browser, Dispozitiv)
+    # 2. User-Agent (sistem de operare, browser web, dispozitiv)
     ua_string = request.headers.get('User-Agent', '')
     user_agent = user_agents.parse(ua_string)
     
@@ -33,22 +34,22 @@ def collect_user_data():
         'is_bot': user_agent.is_bot
     }
 
-    # 3. Context lingvistic și cultural
+    # 3. Context lingvistic
     accept_language = request.headers.get('Accept-Language', '')
     primary_language = accept_language.split(',')[0] if accept_language else None
 
-    # 4. Traseu și sursă de trafic (Referrer)
+    # 4. Sursa de trafic (Referrer)
     referrer = request.headers.get('Referer') # Sursa din care a venit utilizatorul (ex: Google, Social Media)
     current_url = request.url
 
-    # 5. Sesiune și Identificatori Persistenți (Cookie-uri)
+    # 5. Sesiune si Identificatori Persistenți (Cookie-uri)
     # Permite asocierea datelor anonime cu un profil de utilizator existent
     user_session_id = request.cookies.get('session_id', 'anon_user_12345')
 
-    # 6. Payload explicit transmis prin request (ex: interacțiunea curentă)
+    # 6. Payload explicit transmis prin request (ex: interactiunea curentă)
     interaction_payload = request.get_json(silent=True) or request.args.to_dict()
 
-    # Structura finală a datelor colectate pentru Pipeline-ul de Recomandare
+    # Datele colectate pentru pipeline-ul de recomandare
     collected_data = {
         'user_session_id': user_session_id,
         'network': {
@@ -67,12 +68,9 @@ def collect_user_data():
         'event_payload': interaction_payload
     }
 
-    # Aici datele colectate se trimit către un sistem de stocare/stream (ex: Kafka, Elasticsearch, PostgreSQL)
-    print("Log colectat pentru Recommender System:", collected_data)
-
     return jsonify({
         "status": "success",
-        "message": "Date colectate cu succes pentru profilare",
+        "message": "Date colectate cu succes",
         "data_preview": collected_data
     }), 200
 
