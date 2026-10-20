@@ -9,7 +9,7 @@ Repo-ul oficial pentru laboratoarele/lucrările practice de **Sisteme de Recoman
 | Laborator | Tematică / Topic | Ghid (RO) | Guide (EN) |
 | :--- | :--- | :---: | :---: |
 | **Lab 01** | Colectarea Datelor Implicite (HTTP & Context) | [🇷🇴 Read](lab01/ro/) | 🇬🇧 TBA |
-| **Lab 02** | *În curând / Coming soon* | - | - |
+| **Lab 02** | Sistem de recomandare cu Recombee - înregistrare proprietăți | [🇷🇴 Read](lab02/ro/) | 🇬🇧 TBA |
 
 ## 🛠️ Instalare rapidă
 ```bash
