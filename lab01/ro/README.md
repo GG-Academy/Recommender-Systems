@@ -4,7 +4,7 @@
 
 ---
 
-# Laborator 1: Colectarea Datelor Implicite în Sistemele de Recomandare
+# Laborator 1: Colectarea datelor implicite în sistemele de recomandare
 
 În sistemele de recomandare moderne, o mare parte din date sunt colectate implicit — fără ca utilizatorul să introducă manual note sau calificative. În acest laborator, veți rula un server local în Python care extrage metadatele contextuale transmise prin protocolul HTTP (IP, profil dispozitiv, limbi preferate) și veți efectua o cerere de test utilizând browser-ul web.
 
