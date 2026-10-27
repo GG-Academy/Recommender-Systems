@@ -54,7 +54,7 @@ pip install recombee-api-client pandas
 
 ##### Modificare cod
 
-Modificați codul din fișier conform instrucțiunilor din `TODO`-uri, astfel încât să definiți în *Recombee* proprietățile aferente dataset-ului vostru.
+Modificați codul din fișier conform instrucțiunilor din `TODO`-uri, astfel încât să înregistrați în *Recombee* produsele aferente dataset-ului vostru.
 
 ### 4. Livrabile obligatorii
 
