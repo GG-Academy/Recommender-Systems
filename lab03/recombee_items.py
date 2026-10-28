@@ -34,7 +34,7 @@ def send_items():
         
         # Adaugam request-ul de setare a valorilor pentru item
         # (SetItemValues creează automat item-ul dacă acesta nu există)
-        requests.append(SetItemValues(item_id, properties))
+        requests.append(SetItemValues(item_id, properties, cascade_create=True))
         
         # Trimitem in loturi (batch) de cate 100 pentru eficienta
         if len(requests) == 100:
