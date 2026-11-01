@@ -1,17 +1,17 @@
 import pandas as pd
-from recombee_api_client.api_client import RecombeeClient
+from recombee_api_client.api_client import RecombeeClient, Region
 from recombee_api_client.api_requests import SetItemValues, Batch
 from recombee_api_client.exceptions import APIException
 
 # TODO 1: Configurare credentiale Recombee (la fel ca la Lab 02)
-DB_NAME = 'numele_bazei_tale_de_date'
-PRIVATE_TOKEN = 'tokenul_tau_privat'
-REGION = 'eu-west'
+DB_NAME = 'sisteme-de-recomandare-sdr-dev'
+PRIVATE_TOKEN = open('token.txt').read().strip()
+REGION = Region.EU_WEST
 
 client = RecombeeClient(DB_NAME, PRIVATE_TOKEN, region=REGION)
 
 # TODO 2: Incarcarea aceluiasi dataset folosit la Lab 02
-PATH_DATASET = 'dataset_ales.csv'
+PATH_DATASET = 'songs_normalize.csv'
 
 def send_items():
     """Functie care citeste dataset-ul si trimite item-urile in Recombee"""
@@ -22,14 +22,17 @@ def send_items():
     
     for index, row in df.iterrows():
         # TODO 3: Extrageti ID-ul unic al produsului din coloana corespunzatoare din CSV
-        item_id = str(row['nume_coloana_id'])
+        item_id = str(row['id'])
         
         # TODO 4: Mapati proprietatile definite anterior cu valorile din randul curent
         # Exemplu:
         properties = {
-            "nume_proprietate_1": str(row['coloana_1']),
-            "nume_proprietate_2": int(row['coloana_2']),
-            "nume_proprietate_3": float(row['coloana_3'])
+            "artist": str(row['artist']),
+            "song": str(row['song']),
+            "duration_ms": int(row['duration_ms']),
+            "year": int(row['year']),
+            "popularity": int(row['popularity']),
+            "genre": [g.strip() for g in str(row['genre']).split(',') if g.strip() != 'set()']
         }
         
         # Adaugam request-ul de setare a valorilor pentru item
