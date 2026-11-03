@@ -37,7 +37,7 @@
 
 Pentru a atesta realizarea laboratorului fără a expune date cu caracter personal, fiecare student va include în ontologie un *individ* care îl reprezintă, identificat printr-un **hash SHA-256 generat din emailul instituțional**.
 
-Puteți genera rapid hash-ul propriu rulând codul de Python din fișierul [`../my_hash.py`](my_hash.py).
+Puteți genera rapid hash-ul propriu rulând codul de Python din fișierul [`my_hash.py`](../my_hash.py).
 
 #### Ce veți adăuga în WebProtégé:
 
